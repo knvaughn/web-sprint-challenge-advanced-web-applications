@@ -19,10 +19,17 @@ const ColorList = ({ colors, updateColors }) => {
 
   const saveEdit = e => {
     e.preventDefault();
-
+    updateColors(colors.map(color => {
+      if (color.id === colorToEdit.id) {
+        return colorToEdit;
+      }
+      return color;
+    }));
+    setEditing(false);
   };
 
   const deleteColor = color => {
+    updateColors(colors.filter(colorToCompare => colorToCompare.id != color.id));
   };
 
   return (
