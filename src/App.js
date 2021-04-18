@@ -18,8 +18,8 @@ function App() {
           <Link data-testid="logoutButton" onClick={logout} to="/">logout</Link>
         </header> 
 
-        <Route path="/bubbles" component={BubblePage} />
-        <ProtectedRoute exact path="/" component={Login} />
+        <ProtectedRoute path="/bubbles" component={BubblePage} />
+        <Route exact path="/" component={Login} />
       </div>
     </Router>
   );
