@@ -19,7 +19,7 @@ const Login = () => {
     // when you have handled the token, navigate to the BubblePage route
   });
   
-  const error = "";
+  const [error, setError] = useState('');
   //replace with error state
 
   const handleChange = (event) => {
@@ -36,6 +36,9 @@ const Login = () => {
       console.log(response)
       localStorage.setItem('token', response.data.payload);
       history.push('/bubbles');
+    })
+    .catch(err => {
+      setError(err.response.data.error)
     })
   }
 
